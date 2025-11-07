@@ -17,4 +17,40 @@ class TriageSystem:
     def __init__(self) -> None:
         self._pq = []  # private heap
 
-   
+    @classmethod
+    def _next_arrival(cls) -> int:
+        v = cls._arrival_counter
+        cls._arrival_counter += 1
+        return v
+
+    def AddPatient(self, name: str, severity: int) -> None:
+        if not name or not isinstance(name, str):
+            raise ValueError("Name Must be a Non-Empty String")
+        if not isinstance(severity, int) or not (1 <= severity <= 5):
+            raise ValueError("Severity Must be an Int from 1 to 5")
+        arrival = self._next_arrival()
+        # priority: (-severity, arrival) -> larger severity sorts first; earlier arrival sorts first among ties
+        item = _PriorityItem(key=(-severity, arrival), name=name, severity=severity)
+        heapq.heappush(self._pq, item)
+
+    def ProcessNext(self) -> Optional[Tuple[str,int]]:
+        if not self._pq:
+            return None
+        item = heapq.heappop(self._pq)
+        return (item.name, item.severity)
+
+    def PeekNext(self) -> Optional[Tuple[str,int]]:
+        if not self._pq:
+            return None
+        item = self._pq[0]
+        return (item.name, item.severity)
+
+    def IsEmpty(self) -> bool:
+        return not self._pq
+
+    def Size(self) -> int:
+        return len(self._pq)
+
+    def Clear(self) -> None:
+        self._pq.clear()
+
