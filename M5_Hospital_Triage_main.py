@@ -53,4 +53,26 @@ class TriageSystem:
 
     def Clear(self) -> None:
         self._pq.clear()
+        
+def run_demo():
+    data = [
+        ("Sofia", 5),
+        ("Bob", 2),
+        ("Charlie", 4),
+        ("Diana", 3),
+        ("Eli", 1),
+        ("Tom", 4),
+        ("Alice", 5),
+        ("Rachel", 4),
+    ]
+    T = TriageSystem()
+    for name, sev in data:
+        T.AddPatient(name, sev)
 
+    print("Processing Patients:\n")
+    while not T.IsEmpty():
+        name, sev = T.ProcessNext()
+        print(f"Now Treating: {name} (Severity {sev})")
+
+if __name__ == "__main__":
+    run_demo()

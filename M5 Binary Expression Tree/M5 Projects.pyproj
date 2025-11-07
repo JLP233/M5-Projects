@@ -27,6 +27,9 @@
     <Compile Include="M5_Binary_Expression_Tree.py" />
     <Compile Include="stack.py" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="M5 Hospital Triage System\" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
        Visual Studio and specify your pre- and post-build commands in
