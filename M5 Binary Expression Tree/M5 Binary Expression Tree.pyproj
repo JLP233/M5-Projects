@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>c03293bf-fc8e-4808-a9db-afc2d7db6fe3</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>M5_Binary_Expression_Tree.py</StartupFile>
+    <StartupFile>main.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
